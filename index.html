@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Quote & Pomodoro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <section class="quote-card card-3d">
+      <div class="quote-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 21c.34-2.13.86-4.15 1.57-6.03A9.05 9.05 0 013 12c0-3.5 2.5-6 6-6 2.5 0 4.5 1.5 5.5 3.5C15 9 15.73 9 16 9c2 0 3.73 1.22 4.26 3-1.3.5-2.87 1-4.5 1-1.12 0-2.19-.23-3.21-.62A8.8 8.8 0 0012 21H3z"></path>
+        </svg>
+      </div>
+      <p id="quote-text">Loading quote of the day...</p>
+      <p id="quote-author"></p>
+    </section>
+
+    <section class="pomodoro pomodoro-card card-3d">
+      <div class="timer-wrapper">
+        <svg class="timer-ring" width="220" height="220" viewBox="0 0 220 220">
+          <defs>
+            <linearGradient id="timerGradientWork" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#22c55e" />
+              <stop offset="100%" stop-color="#16a34a" />
+            </linearGradient>
+            <linearGradient id="timerGradientBreak" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#d97706" />
+            </linearGradient>
+          </defs>
+          <circle class="timer-ring-bg" cx="110" cy="110" r="89" />
+          <circle id="timer-ring-progress" class="timer-ring-progress work"
+                  cx="110" cy="110" r="89"
+                  stroke-dasharray="565.48"
+                  stroke-dashoffset="565.48" />
+        </svg>
+
+        <div class="timer-display" id="timer-display">
+          <div class="timer-time" id="timer-minutes">25</div>
+          <div class="timer-label" id="timer-label">Work session</div>
+        </div>
+      </div>
+
+      <button id="mode-toggle" class="mode-toggle work">
+        <span id="mode-text">Work mode</span>
+      </button>
+
+      <div class="controls">
+        <button id="start-btn" class="control-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3v22l15-11L5 3z"/></svg>
+          Start
+        </button>
+        <button id="pause-btn" class="control-btn" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+          Pause
+        </button>
+        <button id="reset-btn" class="control-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9c0 2.06-.8 3.92-2.09 5.31L15 12l4.91-4.91A7 7 0 0 1 12 19a7 7 0 0 1-6.71-4.96L3.64 13.4A8.94 8.94 0 0 1 3 12z"/></svg>
+          Reset
+        </button>
+      </div>
+
+      <div class="session-count">
+        <div class="stat">
+          Sessions: <span class="stat-value" id="session-count">0</span>
+        </div>
+        <div class="stat">
+          Completed: <span class="stat-value" id="completed-count">0</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="alarm-sound">
+    <source src="data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAAAAAAAARKwCIBAAACUsAAdTAQAESsAAEI0AAB6AAAG4CAAByZwCjoIAAAAAAAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA" type="audio/wav">
+  </audio>
+
+  <svg style="display: none;">
+    <linearGradient id="timerGradient" gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </svg>
+
+  <script src="app.js"></script>
+</body>
+</html>
